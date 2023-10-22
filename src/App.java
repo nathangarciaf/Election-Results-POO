@@ -1,4 +1,6 @@
 import java.io.FileInputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 /*import java.text.DateFormat;
 import java.util.Date;
@@ -13,71 +15,142 @@ public class App {
         Set<Candidato> candidatos = new HashSet<Candidato>();
         Set<Partido> partidos = new HashSet<Partido>();
 
-        try (FileInputStream fin = new FileInputStream("teste.csv");
+        try (FileInputStream fin = new FileInputStream("candidatosES.csv");
             Scanner s = new Scanner(fin, "ISO-8859-1")) {     
-            Vector<Integer> headerAtributteVector = new Vector<Integer>();       
+            Vector<Integer> headerAttributesVector = new Vector<>();
+                   
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String lineFormat = line.replaceAll("\"", "");
                 if(headerVerify != false){
-                    String header = lineFormat;
-                    try(Scanner headerScanner = new Scanner(header);){
+                    //String header = lineFormat;
+                    String[] headers = lineFormat.split(";");
+                    int idxAttributes = 0;
+                    for(String headerAttribute : headers){
+                        //System.out.println(headerAttribute);
+                        if(headerAttribute.equals("CD_CARGO") || 
+                               headerAttribute.equals("CD_SITUACAO_CANDIDATO_TOT") ||
+                               headerAttribute.equals("NR_CANDIDATO") || 
+                               headerAttribute.equals("NM_URNA_CANDIDATO") ||
+                               headerAttribute.equals("NR_PARTIDO") ||
+                               headerAttribute.equals("SG_PARTIDO") ||
+                               headerAttribute.equals("DT_NASCIMENTO") ||
+                               headerAttribute.equals("CD_SIT_TOT_TURNO") ||
+                               headerAttribute.equals("CD_GENERO") ||
+                               headerAttribute.equals("NM_TIPO_DESTINACAO_VOTOS") ||
+                               headerAttribute.equals("NR_FEDERACAO")){
+                                headerAttributesVector.add(idxAttributes);
+                            }
+                        idxAttributes++;
+                    }
+
+                    /*try(Scanner headerScanner = new Scanner(header);){
                         headerScanner.useDelimiter(";");
                         boolean vecAdd = false;
-                        int idxAtributte = 0;
-                        int idxVec = 0;
+                        int idxAttriibutes = 0;
 
                         while(headerScanner.hasNextLine()){
-                            String headerAtributte = headerScanner.next();
+                            String headerAttributes = headerScanner.next();
 
-                            if(headerAtributte.equals("CD_CARGO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("CD_SITUACAO_CANDIDADO_TOT")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("NR_CANDIDATO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("NM_URNA_CANDIDATO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("NR_PARTIDO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("SG_PARTIDO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("DT_NASCIMENTO:")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("CD_SIT_TOT_TURNO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("CD_GENERO")){
-                                vecAdd=true;
-                            }
-                            else if(headerAtributte.equals("NM_TIPO_DESTINACAO_VOTOS")){
+                            if(headerAttributes.equals("CD_CARGO") || 
+                               headerAttributes.equals("CD_SITUACAO_CANDIDATO_TOT") ||
+                               headerAttributes.equals("NR_CANDIDATO") || 
+                               headerAttributes.equals("NM_URNA_CANDIDATO") ||
+                               headerAttributes.equals("NR_PARTIDO") ||
+                               headerAttributes.equals("SG_PARTIDO") ||
+                               headerAttributes.equals("DT_NASCIMENTO") ||
+                               headerAttributes.equals("CD_SIT_TOT_TURNO") ||
+                               headerAttributes.equals("CD_GENERO") ||
+                               headerAttributes.equals("NM_TIPO_DESTINACAO_VOTOS") ||
+                               headerAttributes.equals("NR_FEDERACAO")){
                                 vecAdd=true;
                             }
 
                             if(vecAdd != false){
-                                System.out.println(headerAtributte);
+                                System.out.println(headerAttributes);
                                 System.out.println();
-                                headerAtributteVector.add(idxVec, idxAtributte);
+                                headerAttributesVector.add(idxAttriibutes);
                                 vecAdd=false;
-                                idxVec++;
                             }
-                            idxAtributte++;
+                            idxAttriibutes++;
                         }
-                    }
+                    }*/
                     headerVerify=false;
-                    continue;
                 }
-                
-                System.out.println("GG");
+                else{
+                    String[] lineAttributes = lineFormat.split(";");
+                    int idxLineAttributes = 0;
+                    Candidato cand = new Candidato();
+                    Partido partido = new Partido();
+                    for(int i : headerAttributesVector){
+                        //CODIGO CARGO
+                        if(idxLineAttributes == 0){
+                            Cargo c = Cargo.getCargo(lineAttributes[i]);
+                            cand.setCargo(c);
+                        }
+                        //NUMERO CANDIDATO
+                        else if(idxLineAttributes == 1){
+                            int nrCand = Integer.parseInt(lineAttributes[i]);
+                            cand.setNumero(nrCand);
+                        }
+                        //NOME URNA
+                        else if(idxLineAttributes == 2){
+                            cand.setNomeUrna(lineAttributes[i]);
+                        }
+                        //NUMERO PARTIDO
+                        else if(idxLineAttributes == 3){
+                            int nrPartido = Integer.parseInt(lineAttributes[i]);
+                            partido.setNumero(nrPartido);
+                        }
+                        //SIGLA PARTIDO
+                        else if(idxLineAttributes == 4){
+                            partido.setSigla(lineAttributes[i]);
+                        }
+                        //NUMERO FEDERACAO
+                        else if(idxLineAttributes == 5){
+                            int nrFederacao = Integer.parseInt(lineAttributes[i]);
+                            cand.setNumeroFederacao(nrFederacao);
+                        }
+                        //DATA NASCIMENTO
+                        else if(idxLineAttributes == 6){
+                            LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                            cand.setDataNascimento(ld);
+                        }
+                        //CODIGO GENERO
+                        else if(idxLineAttributes == 7){
+                            Genero g = Genero.getGenero(lineAttributes[i]);
+                            cand.setGenero(g);
+                        }
+                        //CODIGO SITUACAO TOTAL TURNO
+                        else if(idxLineAttributes == 8){
+                            
+                        }
+                        //NOME DESTINACAO VOTOS
+                        else if(idxLineAttributes == 9){
+                            
+                        }
+                        //CODIGO SITUACAO TOTAL CANDIDATO
+                        else if(idxLineAttributes == 10){
+                            
+                        }
+
+                        idxLineAttributes++;
+                        //System.out.println(lineAttributes[i]);
+                    }
+                    cand.setPartido(partido);
+                    partido.addCandidatosFiliados(cand);
+
+                    candidatos.add(cand);
+                    partidos.add(partido);
+
+                    //System.out.println();
+                }
             }
-            System.out.println(headerAtributteVector);
+            for(Candidato c : candidatos){
+                System.out.println(c);
+                System.out.println();
+            }
+            //System.out.println(headerAttributesVector);
         } catch (Exception e) {
             e.printStackTrace();
         }

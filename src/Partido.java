@@ -6,10 +6,14 @@ public class Partido {
     private int numero;
     private Set<Candidato> candidatosFiliados = new HashSet<Candidato>();
 
-    public Partido(String sigla, int numero) {
+    /*public Partido(String sigla, int numero) {
         this.sigla = sigla;
         this.numero = numero;
     }
+
+    public Partido(){
+        
+    }*/
 
     public void addCandidatosFiliados(Candidato c){
         this.candidatosFiliados.add(c);
@@ -21,5 +25,13 @@ public class Partido {
 
     public int getNumero() {
         return numero;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 }

@@ -1,31 +1,56 @@
+import java.time.LocalDate;
+
 public class Candidato {
-    private String nome;
     private String nomeUrna;
-    private int numeroUrna;
-    private String dataNascimento;
+    private LocalDate dataNascimento;
+    private int numero;
+    private int numeroFederacao;
 
     private Cargo cargo;
     private Genero genero;
     private Partido partido;
 
-    public Candidato(String nome, String nomeUrna, int num, Cargo cargo, String dataNascimento) {
+    /*public Candidato(String nome, String nomeUrna, int num, Cargo cargo, String dataNascimento) {
         this.nome = nome;
         this.nomeUrna = nomeUrna;
-        this.numeroUrna = num;
         this.cargo = cargo;
         this.dataNascimento = dataNascimento;
+    }*/
+
+    public void setNomeUrna(String nomeUrna) {
+        this.nomeUrna = nomeUrna;
     }
-    
-    public String getNome() {
-        return nome;
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setNumeroFederacao(int numeroFederacao) {
+        this.numeroFederacao = numeroFederacao;
+    }
+
+    public int getNumeroFederacao() {
+        return numeroFederacao;
+    }
+
+    public int getNumero() {
+        return numero;
     }
 
     public String getNomeUrna() {
         return nomeUrna;
-    }
-
-    public int getNumeroUrna() {
-        return numeroUrna;
     }
 
     public Cargo getCargo() {
@@ -36,7 +61,7 @@ public class Candidato {
         return genero;
     }
 
-    public String getdataNascimento() {
+    public LocalDate getdataNascimento() {
         return dataNascimento;
     }
     
@@ -50,6 +75,6 @@ public class Candidato {
 
     @Override
     public String toString(){
-        return "Candidato: " + getNome() + "/" + getNomeUrna() + " (" + numeroUrna + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado: " + cargo;
+        return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação:" + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero;
     }
 }
