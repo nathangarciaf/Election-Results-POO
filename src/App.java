@@ -2,9 +2,6 @@ import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
-/*import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;*/
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
@@ -16,7 +13,7 @@ public class App {
         Set<Partido> partidos = new HashSet<Partido>();
 
         try (FileInputStream fin = new FileInputStream("candidatosES.csv");
-            Scanner s = new Scanner(fin, "ISO-8859-1")) {     
+            Scanner s = new Scanner(fin, "ISO-8859-1")) {
             Vector<Integer> headerAttributesVector = new Vector<>();
                    
             while (s.hasNextLine()) {
@@ -133,11 +130,11 @@ public class App {
                         else if(idxLineAttributes == 10){
                             
                         }
-
                         idxLineAttributes++;
                         //System.out.println(lineAttributes[i]);
                     }
                     cand.setPartido(partido);
+                    //System.out.println(partido);
                     partido.addCandidatosFiliados(cand);
 
                     candidatos.add(cand);
@@ -146,24 +143,32 @@ public class App {
                     //System.out.println();
                 }
             }
-            for(Candidato c : candidatos){
-                System.out.println(c);
-                System.out.println();
-            }
+            /*for(Partido p : partidos){
+                System.out.println(p);
+            }*/
             //System.out.println(headerAttributesVector);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        /*Date d = new Date();
-        Locale brLocale = Locale.forLanguageTag("pt-BR");
-		DateFormat data = DateFormat.getDateInstance(DateFormat.SHORT, brLocale);
-        String dataFormat = data.format(d);
+        // IMPLEMENTAR UMA INTERFACE DE COMPARATOR???
+        /*Set<Partido> fili = new HashSet<Partido>();
+        Partido andre = new Partido();
+        andre.setSigla("SGA");
+        fili.add(andre);
 
-        Cargo c = Cargo.getCargo("7");
+        Partido claudio = new Partido();
+        claudio.setSigla("SGB");
+        boolean verifyPartido = true;
+        for(Partido part : fili){
+            if(part.getSigla().equals(claudio.getSigla())){
+                verifyPartido=false;
+            }
+        }
+        if(verifyPartido != false){
+            fili.add(claudio);
+        }
 
-        Candidato jorge = new Candidato("Jorge Aragao Fonseca", "Didi",1313,c,dataFormat);
-
-        System.out.println(jorge);*/
+        System.out.println(fili);*/
     }
 }

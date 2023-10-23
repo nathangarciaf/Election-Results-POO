@@ -5,6 +5,7 @@ public class Candidato {
     private LocalDate dataNascimento;
     private int numero;
     private int numeroFederacao;
+    private int votos;
 
     private Cargo cargo;
     private Genero genero;
@@ -41,6 +42,10 @@ public class Candidato {
         this.numeroFederacao = numeroFederacao;
     }
 
+    public int getVotos() {
+        return votos;
+    }
+
     public int getNumeroFederacao() {
         return numeroFederacao;
     }
@@ -75,6 +80,6 @@ public class Candidato {
 
     @Override
     public String toString(){
-        return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação:" + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero;
+        return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação: " + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero;
     }
 }

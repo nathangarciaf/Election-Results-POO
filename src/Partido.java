@@ -9,10 +9,6 @@ public class Partido {
     /*public Partido(String sigla, int numero) {
         this.sigla = sigla;
         this.numero = numero;
-    }
-
-    public Partido(){
-        
     }*/
 
     public void addCandidatosFiliados(Candidato c){
@@ -33,5 +29,10 @@ public class Partido {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString(){
+        return "Sigla do Partido: " + sigla + "\nNumero do Partido: " + numero + "\n";
     }
 }
