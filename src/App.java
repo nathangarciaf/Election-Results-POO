@@ -14,7 +14,7 @@ public class App {
 
         try (FileInputStream fin = new FileInputStream("candidatosES.csv");
             Scanner s = new Scanner(fin, "ISO-8859-1")) {
-            Vector<Integer> headerAttributesVector = new Vector<>();
+            Vector<Integer> headerAttributesVector = new Vector<Integer>();
                    
             while (s.hasNextLine()) {
                 String line = s.nextLine();
@@ -133,6 +133,10 @@ public class App {
                         idxLineAttributes++;
                         //System.out.println(lineAttributes[i]);
                     }
+                    /*boolean partidoVerify = false;
+                    for(Partido p : partidos){
+
+                    }*/
                     cand.setPartido(partido);
                     //System.out.println(partido);
                     partido.addCandidatosFiliados(cand);
