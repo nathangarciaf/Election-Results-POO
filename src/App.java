@@ -120,31 +120,37 @@ public class App {
                         }
                         //CODIGO SITUACAO TOTAL TURNO
                         else if(idxLineAttributes == 8){
-                            
+                                                     
                         }
                         //NOME DESTINACAO VOTOS
                         else if(idxLineAttributes == 9){
-                            
+                            System.out.println(lineAttributes[i]);
                         }
                         //CODIGO SITUACAO TOTAL CANDIDATO
                         else if(idxLineAttributes == 10){
-                            
+                            int codigoDeferimento = Integer.parseInt(lineAttributes[i]);
+                            if(codigoDeferimento == 2 || codigoDeferimento == 16){
+                                cand.setCandidaturaDeferida(true);
+                            }
                         }
                         idxLineAttributes++;
                         //System.out.println(lineAttributes[i]);
                     }
-                    /*boolean partidoVerify = false;
                     for(Partido p : partidos){
-
-                    }*/
+                        if(partido.getNumero() == p.getNumero()){
+                            partido=p;
+                            break;
+                        }
+                    }
                     cand.setPartido(partido);
+                    
                     //System.out.println(partido);
                     partido.addCandidatosFiliados(cand);
 
                     candidatos.add(cand);
                     partidos.add(partido);
 
-                    //System.out.println();
+                    System.out.println();
                 }
             }
             /*for(Partido p : partidos){

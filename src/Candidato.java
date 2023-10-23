@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Comparator;
 
 public class Candidato {
     private String nomeUrna;
@@ -6,6 +7,9 @@ public class Candidato {
     private int numero;
     private int numeroFederacao;
     private int votos;
+
+    private boolean candidaturaDeferida;
+    private boolean eleito;
 
     private Cargo cargo;
     private Genero genero;
@@ -18,24 +22,32 @@ public class Candidato {
         this.dataNascimento = dataNascimento;
     }*/
 
+    public String getNomeUrna() {
+        return nomeUrna;
+    }
+
     public void setNomeUrna(String nomeUrna) {
         this.nomeUrna = nomeUrna;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
+    public int getNumero() {
+        return numero;
     }
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public int getNumeroFederacao() {
+        return numeroFederacao;
     }
 
     public void setNumeroFederacao(int numeroFederacao) {
@@ -46,30 +58,42 @@ public class Candidato {
         return votos;
     }
 
-    public int getNumeroFederacao() {
-        return numeroFederacao;
+    public void setVotos(int votos) {
+        this.votos = votos;
     }
 
-    public int getNumero() {
-        return numero;
+    public boolean isCandidaturaDeferida() {
+        return candidaturaDeferida;
     }
 
-    public String getNomeUrna() {
-        return nomeUrna;
+    public void setCandidaturaDeferida(boolean candidaturaDeferida) {
+        this.candidaturaDeferida = candidaturaDeferida;
+    }
+
+    public boolean isEleito() {
+        return eleito;
+    }
+
+    public void setEleito(boolean eleito) {
+        this.eleito = eleito;
     }
 
     public Cargo getCargo() {
         return cargo;
     }
 
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
     public Genero getGenero() {
         return genero;
     }
 
-    public LocalDate getdataNascimento() {
-        return dataNascimento;
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
-    
+
     public Partido getPartido() {
         return partido;
     }
@@ -81,5 +105,17 @@ public class Candidato {
     @Override
     public String toString(){
         return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação: " + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero;
+    }
+
+    public static class ComparatorVotos implements Comparator<Candidato> {
+        @Override
+        public int compare(Candidato c1, Candidato c2){
+            if(c1.getVotos() != c2.getVotos()){
+                return c1.getVotos() - c2.getVotos();
+            }
+            else{
+                return c1.getNomeUrna().compareTo(c2.getNomeUrna());
+            }
+        }
     }
 }

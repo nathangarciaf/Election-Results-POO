@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,5 +35,12 @@ public class Partido {
     @Override
     public String toString(){
         return "Sigla do Partido: " + sigla + "\nNumero do Partido: " + numero + "\n";
+    }
+}
+
+class NumeroComparator implements Comparator<Partido> {
+    @Override
+    public int compare(Partido p1, Partido p2){
+        return p2.getNumero() - p2.getNumero(); 
     }
 }
