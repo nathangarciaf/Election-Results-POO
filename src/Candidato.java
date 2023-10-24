@@ -10,6 +10,7 @@ public class Candidato {
 
     private boolean candidaturaDeferida;
     private boolean eleito;
+    private boolean votoLegenda;
 
     private Cargo cargo;
     private Genero genero;
@@ -100,6 +101,14 @@ public class Candidato {
 
     public void setPartido(Partido partido) {
         this.partido = partido;
+    }
+
+    public boolean isVotoLegenda() {
+        return votoLegenda;
+    }
+
+    public void setVotoLegenda(boolean votoLegenda) {
+        this.votoLegenda = votoLegenda;
     }
 
     @Override
