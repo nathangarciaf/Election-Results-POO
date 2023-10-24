@@ -9,6 +9,7 @@ import java.util.Vector;
 public class Main {
     public static void main(String[] args) {
         //System.out.println(args.length);
+        
         boolean headerVerify=true;
         Map<Integer,Candidato> candidatos = new HashMap<>();
         Map<Integer,Partido> partidos = new HashMap<>();
@@ -125,5 +126,14 @@ public class Main {
         }
 
         // IMPLEMENTAR UMA INTERFACE DE COMPARATOR???
+        if(args[0] == "--federal"){
+
+        }
+        else if(args[0] == "--estadual"){
+
+        }
+        else{
+            
+        }
     }
 }
