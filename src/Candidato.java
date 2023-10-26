@@ -59,8 +59,8 @@ public class Candidato {
         return votos;
     }
 
-    public void setVotos(int votos) {
-        this.votos = votos;
+    public void addVotos(int votos) {
+        this.votos += votos;
     }
 
     public boolean isCandidaturaDeferida() {
@@ -113,17 +113,17 @@ public class Candidato {
 
     @Override
     public String toString(){
-        return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação: " + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero;
+        return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação: " + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero + "\nVotos: " + votos + "\n";
     }
 
     public static class ComparatorVotos implements Comparator<Candidato> {
         @Override
         public int compare(Candidato c1, Candidato c2){
             if(c1.getVotos() != c2.getVotos()){
-                return c1.getVotos() - c2.getVotos();
+                return c2.getVotos() - c1.getVotos();
             }
             else{
-                return c1.getNomeUrna().compareTo(c2.getNomeUrna());
+                return c2.getNomeUrna().compareTo(c1.getNomeUrna());
             }
         }
     }

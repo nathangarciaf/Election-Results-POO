@@ -30,8 +30,8 @@ public class Partido {
         return votos;
     }
 
-    public void incrementVotos(int votos){
-        this.votos+= votos;
+    public void addVotos(int votos){
+        this.votos += votos;
     }
 
     public void setSigla(String sigla) {
