@@ -46,16 +46,18 @@ public class Partido {
     public String toString(){
         return "Sigla do Partido: " + sigla + "\nNumero do Partido: " + numero + "\n";
     }
-}
 
-class ComparatorVotos implements Comparator<Partido> {
-    @Override
-    public int compare(Partido p1, Partido p2){
-        if(p1.getVotos() != p2.getVotos()){
-            return p1.getVotos() - p2.getVotos();
-        }
-        else{
-            return p1.getSigla().compareTo(p2.getSigla());
+    public static class ComparatorVotos implements Comparator<Partido> {
+        @Override
+        public int compare(Partido p1, Partido p2){
+            if(p1.getVotos() != p2.getVotos()){
+                return p2.getVotos() - p1.getVotos();
+            }
+            else{
+                return p1.getNumero() - p2.getNumero();
+            }
         }
     }
 }
+
+

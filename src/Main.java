@@ -194,6 +194,8 @@ public class Main {
             System.out.println("Número de vagas: " + eleicao.getCandidatosFederaisEleitos());
             System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
             System.out.println(eleicao.getCandidatosFederaisMaisVotados());
+            System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\r\n" + //
+                    "(com sua posição no ranking de mais votados)");
             //eleicao.printCandidatosFederais();
         }
         else{
