@@ -101,11 +101,7 @@ public class Main {
                         }
                         idxLineAttributes++;
                     }
-                    cand.setPartido(partido);
-                    partido.addCandidatosFiliados(cand);
-
-                    eleicao.addPartido(partido.getNumero(), partido);
-                    eleicao.addCandidatos(cand.getNumero(), cand);
+                    eleicao.addCandidatoEPartido(cand,partido);
                 }
             }
         } catch (Exception e) {

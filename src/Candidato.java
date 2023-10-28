@@ -54,6 +54,7 @@ public class Candidato {
 
     public void addVotos(int votos) {
         this.votos += votos;
+        this.partido.addVotosNominais(votos);
     }
 
     public boolean isCandidaturaDeferida() {

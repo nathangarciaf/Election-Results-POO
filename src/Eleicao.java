@@ -37,9 +37,13 @@ public class Eleicao {
         System.out.println("Votação dos partidos e número de candidatos eleitos:");
         printInfoVotacaoFederalPartidos(part);
 
-        System.out.println("Total de votos válidos: " + part.get);
-        System.out.println("Total de votos nominais: " + getVotosNominais());
-        System.out.println("Total de votos de legenda: " + getVotosDeLegenda(part));
+        String votosTotais = getVotosTotais(part);
+        String votosNominais = getVotosNominais(part);
+        String votosDeLegenda = getVotosDeLegenda(part);
+
+        System.out.println("Total de votos válidos: " + votosTotais);
+        System.out.println("Total de votos nominais: " + votosNominais);
+        System.out.println("Total de votos de legenda: " + votosDeLegenda);
     }
 
     public void getRelatorioEstadual() {
@@ -73,7 +77,11 @@ public class Eleicao {
     }
 
     private String getVotosTotais(Vector<Partido> part) {
-        return null;
+        int votos = 0;
+        for(Partido p : part){
+            votos += p.getVotosTotais();
+        }
+        return NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votos);
     }
 
     private String getVotosDeLegenda(Vector<Partido> part){
@@ -84,28 +92,23 @@ public class Eleicao {
         return NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votos);
     }
 
-    private String getVotosNominais() {
+    private String getVotosNominais(Vector<Partido> part) {
         int votos = 0;
-        for(Candidato c : this.candidatos.values()){
-            votos += c.getVotos();
+        for(Partido p : part){
+            votos += p.getVotosNominais();
         }
         return NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votos);
     }
 
-    public Map<Integer,Candidato> getMapCandidatos(){
-        return new HashMap<Integer,Candidato>(candidatos);
-    }
+    public void addCandidatoEPartido(Candidato c, Partido p){
+        if(partidos.containsKey(p.getNumero())){
+            p = partidos.get(p.getNumero());
+        }
+        c.setPartido(p);
+        p.addCandidatosFiliados(c);
 
-    public Map<Integer,Partido> getMapPartidos(){
-        return new HashMap<Integer,Partido>(partidos);
-    }
-
-    public void addCandidatos(int key, Candidato c){
-        candidatos.put(key, c);
-    }
-
-    public void addPartido(int key, Partido p){
-        partidos.put(key, p);
+        candidatos.put(c.getNumero(), c);
+        partidos.put(p.getNumero(),p);
     }
 
     public void addVotosCandidato(int key, int votos){
@@ -116,7 +119,6 @@ public class Eleicao {
         else{
             if(c.isCandidaturaDeferida()){
                 c.addVotos(votos);
-                c.getPartido().addVotosNominais(votos);
             }
         }
     }
@@ -423,7 +425,13 @@ public class Eleicao {
             String votosLStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosL);
             String votosNStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosN);
             String votosTStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosT);
-            result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + "de legenda), " + p.getQuantidadeCandidatosEstaduaisEleitos() + " candidatos eleitos";
+            result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + " de legenda), ";
+            if(p.getQuantidadeCandidatosEstaduaisEleitos() <= 1){
+                result+= p.getQuantidadeCandidatosEstaduaisEleitos() + " candidato eleitos\n";
+            }
+            else{
+                result+= p.getQuantidadeCandidatosEstaduaisEleitos() + " candidatos eleitos\n";
+            }
             idxPartido++;
         }
         System.out.println(result);
@@ -439,7 +447,13 @@ public class Eleicao {
             String votosLStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosL);
             String votosNStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosN);
             String votosTStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosT);
-            result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + "de legenda), " + p.getQuantidadeCandidatosFederaisEleitos() + " candidatos eleitos";
+            result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + " de legenda), " + p.getQuantidadeCandidatosFederaisEleitos() + " candidatos eleitos";
+            if(p.getQuantidadeCandidatosFederaisEleitos() <= 1){
+                result+= p.getQuantidadeCandidatosFederaisEleitos() + " candidato eleito\n";
+            }
+            else{
+                result+= p.getQuantidadeCandidatosFederaisEleitos() + " candidatos eleitos\n";
+            }
             idxPartido++;
         }
         System.out.println(result);

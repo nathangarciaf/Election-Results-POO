@@ -11,11 +11,6 @@ public class Partido {
 
     private Set<Candidato> candidatosFiliados = new HashSet<Candidato>();
 
-    /*public Partido(String sigla, int numero) {
-        this.sigla = sigla;
-        this.numero = numero;
-    }*/
-
     public void addCandidatosFiliados(Candidato c){
         this.candidatosFiliados.add(c);
     }   
@@ -76,6 +71,12 @@ public class Partido {
             }
         }
         return eleitos;
+    }
+
+    public void printCandidatos(){
+        for(Candidato c : this.candidatosFiliados){
+            System.out.println(c);
+        }
     }
 
     @Override
