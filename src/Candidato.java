@@ -16,13 +16,6 @@ public class Candidato {
     private Genero genero;
     private Partido partido;
 
-    /*public Candidato(String nome, String nomeUrna, int num, Cargo cargo, String dataNascimento) {
-        this.nome = nome;
-        this.nomeUrna = nomeUrna;
-        this.cargo = cargo;
-        this.dataNascimento = dataNascimento;
-    }*/
-
     public String getNomeUrna() {
         return nomeUrna;
     }

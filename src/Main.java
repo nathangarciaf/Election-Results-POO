@@ -160,6 +160,7 @@ public class Main {
                                 eleicao.addVotosCandidato(numVotavel, votos);
                             }
                             else{
+                                System.out.println("VOTO EM PARTIDO: " + numVotavel);
                                 if(eleicao.constainsPartidoKey(numVotavel)){
                                     eleicao.addVotosPartido(numVotavel, votos);
                                 }
@@ -191,20 +192,10 @@ public class Main {
         }
 
         if(nivelEleicao.equals("FEDERAL")){
-            System.out.println("Número de vagas: " + eleicao.getCandidatosFederaisEleitos());
-            System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
-            System.out.println(eleicao.getCandidatosFederaisMaisVotados());
-            System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\r\n" + //
-                    "(com sua posição no ranking de mais votados)");
-            //eleicao.printCandidatosFederais();
+            eleicao.getRelatorioFederal();
         }
         else{
-            System.out.println("Número de vagas: " + eleicao.getCandidatosEstaduaisEleitos());
-            System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
-            System.out.println(eleicao.getCandidatosEstaduaisMaisVotados());
-            System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\r\n" + //
-                    "(com sua posição no ranking de mais votados)");
-            //eleicao.printCandidatosEstaduais();
+            eleicao.getRelatorioEstadual();
         }
     }
 }

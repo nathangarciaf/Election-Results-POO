@@ -5,7 +5,9 @@ import java.util.Set;
 public class Partido {
     private String sigla;
     private int numero;
-    private int votos;
+    private int votosLegenda;
+    private int votosNominais;
+    private int votosTotais;
 
     private Set<Candidato> candidatosFiliados = new HashSet<Candidato>();
 
@@ -26,12 +28,26 @@ public class Partido {
         return numero;
     }
 
-    public int getVotos() {
-        return votos;
+    public int getVotosLegenda() {
+        return votosLegenda;
     }
 
-    public void addVotos(int votos){
-        this.votos += votos;
+    public int getVotosNominais() {
+        return votosNominais;
+    }
+
+    public void addVotosNominais(int votos) {
+        this.votosNominais += votos;
+        this.votosTotais += votos;
+    }
+
+    public int getVotosTotais() {
+        return votosTotais;
+    }
+
+    public void addVotosLegenda(int votos){
+        this.votosLegenda += votos;
+        this.votosTotais += votos;
     }
 
     public void setSigla(String sigla) {
@@ -42,6 +58,26 @@ public class Partido {
         this.numero = numero;
     }
 
+    public int getQuantidadeCandidatosEstaduaisEleitos(){
+        int eleitos = 0;
+        for(Candidato c : this.candidatosFiliados){
+            if(c.isEleito() && c.getCargo().toString().equals("ESTADUAL")){
+                eleitos++;
+            }
+        }
+        return eleitos;
+    }
+
+    public int getQuantidadeCandidatosFederaisEleitos(){
+        int eleitos = 0;
+        for(Candidato c : this.candidatosFiliados){
+            if(c.isEleito() && c.getCargo().toString().equals("FEDERAL")){
+                eleitos++;
+            }
+        }
+        return eleitos;
+    }
+
     @Override
     public String toString(){
         return "Sigla do Partido: " + sigla + "\nNumero do Partido: " + numero + "\n";
@@ -50,8 +86,8 @@ public class Partido {
     public static class ComparatorVotos implements Comparator<Partido> {
         @Override
         public int compare(Partido p1, Partido p2){
-            if(p1.getVotos() != p2.getVotos()){
-                return p2.getVotos() - p1.getVotos();
+            if(p1.getVotosTotais() != p2.getVotosTotais()){
+                return p2.getVotosTotais() - p1.getVotosTotais();
             }
             else{
                 return p1.getNumero() - p2.getNumero();
