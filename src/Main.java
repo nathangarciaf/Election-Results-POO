@@ -29,6 +29,7 @@ public class Main {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String lineFormat = line.replaceAll("\"", "");
+                boolean invalidCargo=false;
 
                 if(headerVerify != false){
                     eleicao.addHeaderIdxCandidato(headerAttributesIndexes, lineFormat.split(";"));
@@ -42,12 +43,21 @@ public class Main {
                     for(int i : headerAttributesIndexes){
                         //CODIGO CARGO
                         if(idxLineAttributes == 0){
-                            Cargo c = Cargo.getCargo(lineAttributes[i]);
-                            cand.setCargo(c);
+                            if(lineAttributes[i].equals("6") || lineAttributes[i].equals("7")){
+                                Cargo c = Cargo.getCargo(lineAttributes[i]);
+                                cand.setCargo(c);
+                            }
+                            else{
+                                invalidCargo=true;
+                                break;
+                            }
                         }
                         //NUMERO CANDIDATO
                         else if(idxLineAttributes == 1){
                             int nrCand = Integer.parseInt(lineAttributes[i]);
+                            if(nrCand == 22){
+                                System.out.println("CANDIDATO DE NUMERO 22");
+                            }
                             cand.setNumero(nrCand);
                         }
                         //NOME URNA
@@ -100,6 +110,9 @@ public class Main {
                             }
                         }
                         idxLineAttributes++;
+                    }
+                    if(invalidCargo){
+                        continue;
                     }
                     eleicao.addCandidatoEPartido(cand,partido);
                 }
@@ -156,7 +169,6 @@ public class Main {
                                 eleicao.addVotosCandidato(numVotavel, votos);
                             }
                             else{
-                                System.out.println("VOTO EM PARTIDO: " + numVotavel);
                                 if(eleicao.constainsPartidoKey(numVotavel)){
                                     eleicao.addVotosPartido(numVotavel, votos);
                                 }
@@ -165,11 +177,16 @@ public class Main {
                     }
                     else if(nivelEleicao.equals("ESTADUAL")){
                         if((c.toString()).equals("ESTADUAL")){
+                            //System.out.println("VOTE:" + numVotavel + "/");
                             if(eleicao.constainsCandidatoKey(numVotavel)){
+                                if(numVotavel == 22){
+                                    System.out.println("PARTIDO FORA DE LUGAR");
+                                }
                                 eleicao.addVotosCandidato(numVotavel, votos);
                             }
                             else{
                                 if(eleicao.constainsPartidoKey(numVotavel)){
+                                    //System.out.println("VOTO EM PARTIDO: " + numVotavel + "\n");
                                     eleicao.addVotosPartido(numVotavel, votos);
                                 }
                             }

@@ -20,8 +20,8 @@ public class Eleicao {
         Vector<Candidato> candidatosFederais = getCandidatosFederais();
         candidatosFederais.sort(new Candidato.ComparatorVotos());
         
-        System.out.println("Número de vagas: " + getQuantidadeCandidatosFederaisEleitos(candidatosFederais));
-        System.out.println("Deputados federais eleitos:\n");
+        System.out.println("Número de vagas: " + getQuantidadeCandidatosFederaisEleitos(candidatosFederais) + "\n");
+        System.out.println("Deputados federais eleitos:");
         printCandidatosFederaisEleitos(candidatosFederais);
         System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
         printCandidatosFederaisMaisVotados(candidatosFederais);
@@ -36,6 +36,9 @@ public class Eleicao {
         part.sort(new Partido.ComparatorVotos());
         System.out.println("Votação dos partidos e número de candidatos eleitos:");
         printInfoVotacaoFederalPartidos(part);
+
+        System.out.println("Eleitos, por gênero:");
+        printEleitosFederaisPorGenero(candidatosFederais);
 
         String votosTotais = getVotosTotais(part);
         String votosNominais = getVotosNominais(part);
@@ -66,6 +69,9 @@ public class Eleicao {
         part.sort(new Partido.ComparatorVotos());
         System.out.println("Votação dos partidos e número de candidatos eleitos:");
         printInfoVotacaoEstadualPartidos(part);
+
+        System.out.println("Eleitos, por gênero:");
+        printEleitosEstaduaisPorGenero(candidatosEstaduais);
 
         String votosTotais = getVotosTotais(part);
         String votosNominais = getVotosNominais(part);
@@ -415,6 +421,76 @@ public class Eleicao {
         }
     }
 
+    private void printEleitosEstaduaisPorGenero(Vector<Candidato> candidatos) {
+        int eleitos = getQuantidadeCandidatosEstaduaisEleitos(candidatos);
+        String result = "";
+        int i = 1;
+        int idxCandidatoAtual = 0;
+        double candidatosFeminino = 0;
+        double candidatosMasculino = 0;
+        while(i <= eleitos){
+            Candidato c = candidatos.get(idxCandidatoAtual);
+            if(c.isEleito() && c.getCargo().toString().equals("ESTADUAL")){
+                if(c.getGenero().toString().equals("MASCULINO")){
+                    candidatosMasculino++;
+                }
+                else{
+                    if(c.getGenero().toString().equals("FEMININO")){
+                        candidatosFeminino++;
+                    }
+                }
+                i++;
+            }
+            idxCandidatoAtual++;
+        }
+
+        double percentFem = ((candidatosFeminino/eleitos)*100);
+        double percentMasc= ((candidatosMasculino/eleitos)*100);
+
+        Locale brLocale = Locale.forLanguageTag("pt-BR");
+		NumberFormat nf = NumberFormat.getNumberInstance(brLocale);
+		nf.setMaximumFractionDigits(2);
+
+        result+="Feminino: " + (int)candidatosFeminino + " (" + nf.format(percentFem) + "%)\n";
+        result+="Feminino: " + (int)candidatosMasculino + " (" + nf.format(percentMasc) + "%)\n";
+        System.out.println(result);
+    }
+
+    private void printEleitosFederaisPorGenero(Vector<Candidato> candidatos) {
+        int eleitos = getQuantidadeCandidatosFederaisEleitos(candidatos);
+        String result = "";
+        int i = 1;
+        int idxCandidatoAtual = 0;
+        double candidatosFeminino = 0;
+        double candidatosMasculino = 0;
+        while(i <= eleitos){
+            Candidato c = candidatos.get(idxCandidatoAtual);
+            if(c.isEleito() && c.getCargo().toString().equals("FEDERAL")){
+                if(c.getGenero().toString().equals("MASCULINO")){
+                    candidatosMasculino++;
+                }
+                else{
+                    if(c.getGenero().toString().equals("FEMININO")){
+                        candidatosFeminino++;
+                    }
+                }
+                i++;
+            }
+            idxCandidatoAtual++;
+        }
+
+        double percentFem = ((candidatosFeminino/eleitos)*100);
+        double percentMasc= ((candidatosMasculino/eleitos)*100);
+
+        Locale brLocale = Locale.forLanguageTag("pt-BR");
+		NumberFormat nf = NumberFormat.getNumberInstance(brLocale);
+		nf.setMaximumFractionDigits(2);
+
+        result+="Feminino: " + (int)candidatosFeminino + " (" + nf.format(percentFem) + "%)\n";
+        result+="Feminino: " + (int)candidatosMasculino + " (" + nf.format(percentMasc) + "%)\n";
+        System.out.println(result);
+    }
+
     public void printInfoVotacaoEstadualPartidos(Vector<Partido> partidos){
         String result = "";
         int idxPartido = 1;
@@ -427,7 +503,7 @@ public class Eleicao {
             String votosTStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosT);
             result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + " de legenda), ";
             if(p.getQuantidadeCandidatosEstaduaisEleitos() <= 1){
-                result+= p.getQuantidadeCandidatosEstaduaisEleitos() + " candidato eleitos\n";
+                result+= p.getQuantidadeCandidatosEstaduaisEleitos() + " candidato eleito\n";
             }
             else{
                 result+= p.getQuantidadeCandidatosEstaduaisEleitos() + " candidatos eleitos\n";
@@ -444,10 +520,12 @@ public class Eleicao {
             int votosL = p.getVotosLegenda();
             int votosN = p.getVotosNominais();
             int votosT = p.getVotosTotais();
+
             String votosLStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosL);
             String votosNStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosN);
             String votosTStr = NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosT);
-            result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + " de legenda), " + p.getQuantidadeCandidatosFederaisEleitos() + " candidatos eleitos";
+
+            result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + votosTStr + " votos (" + votosNStr + " nominais e " + votosLStr + " de legenda), ";
             if(p.getQuantidadeCandidatosFederaisEleitos() <= 1){
                 result+= p.getQuantidadeCandidatosFederaisEleitos() + " candidato eleito\n";
             }
