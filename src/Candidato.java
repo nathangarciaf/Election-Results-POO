@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Comparator;
 
 public class Candidato {
@@ -105,19 +106,28 @@ public class Candidato {
         this.votoLegenda = votoLegenda;
     }
 
+    public int getIdade(LocalDate dataEleicao){
+        return Period.between(this.dataNascimento, dataEleicao).getYears();
+    }
+
     @Override
     public String toString(){
         return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação: " + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero + "\nVotos: " + votos + "\n";
     }
 
     public static class ComparatorVotos implements Comparator<Candidato> {
+        LocalDate data;
+        public ComparatorVotos(LocalDate dataEleicao){
+            this.data = dataEleicao;
+        }
+
         @Override
         public int compare(Candidato c1, Candidato c2){
             if(c1.getVotos() != c2.getVotos()){
                 return c2.getVotos() - c1.getVotos();
             }
             else{
-                return c2.getNomeUrna().compareTo(c1.getNomeUrna());
+                return c2.getIdade(data) - c1.getIdade(data);
             }
         }
     }

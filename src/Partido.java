@@ -53,6 +53,16 @@ public class Partido {
         this.numero = numero;
     }
 
+    public int getQuantidadeCandidatosEleitos(){
+        int eleitos = 0;
+        for(Candidato c : this.candidatosFiliados){
+            if(c.isEleito()){
+                eleitos++;
+            }
+        }
+        return eleitos;
+    }
+
     public int getQuantidadeCandidatosEstaduaisEleitos(){
         int eleitos = 0;
         for(Candidato c : this.candidatosFiliados){

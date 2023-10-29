@@ -1,6 +1,7 @@
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -12,6 +13,9 @@ public class Main {
         }
         else if(args[0].equals("--estadual")){
             nivelEleicao="ESTADUAL";
+        }
+        else{
+
         }
 
         Eleicao eleicao = new Eleicao(args[3], nivelEleicao);
@@ -29,7 +33,6 @@ public class Main {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String lineFormat = line.replaceAll("\"", "");
-                boolean invalidCargo=false;
 
                 if(headerVerify != false){
                     eleicao.addHeaderIdxCandidato(headerAttributesIndexes, lineFormat.split(";"));
@@ -43,22 +46,18 @@ public class Main {
                     for(int i : headerAttributesIndexes){
                         //CODIGO CARGO
                         if(idxLineAttributes == 0){
-                            if(lineAttributes[i].equals("6") || lineAttributes[i].equals("7")){
-                                Cargo c = Cargo.getCargo(lineAttributes[i]);
-                                cand.setCargo(c);
-                            }
-                            else{
-                                invalidCargo=true;
-                                break;
-                            }
+                            Cargo c = Cargo.getCargo(lineAttributes[i]);
+                            cand.setCargo(c);
                         }
                         //NUMERO CANDIDATO
                         else if(idxLineAttributes == 1){
-                            int nrCand = Integer.parseInt(lineAttributes[i]);
-                            if(nrCand == 22){
-                                System.out.println("CANDIDATO DE NUMERO 22");
+                            try {
+                                int nrCand = Integer.parseInt(lineAttributes[i]);
+                                cand.setNumero(nrCand);
+                            } catch (NumberFormatException nfe) {
+                                System.out.println("Numero do candidato inválido");
                             }
-                            cand.setNumero(nrCand);
+                                
                         }
                         //NOME URNA
                         else if(idxLineAttributes == 2){
@@ -66,8 +65,12 @@ public class Main {
                         }
                         //NUMERO PARTIDO
                         else if(idxLineAttributes == 3){
-                            int nrPartido = Integer.parseInt(lineAttributes[i]);
-                            partido.setNumero(nrPartido);
+                            try {
+                                int nrPartido = Integer.parseInt(lineAttributes[i]);
+                                partido.setNumero(nrPartido);
+                            } catch (NumberFormatException nfe) {
+                                System.out.println("Numero de partido inválido");
+                            }
                         }
                         //SIGLA PARTIDO
                         else if(idxLineAttributes == 4){
@@ -75,13 +78,21 @@ public class Main {
                         }
                         //NUMERO FEDERACAO
                         else if(idxLineAttributes == 5){
-                            int nrFederacao = Integer.parseInt(lineAttributes[i]);
-                            cand.setNumeroFederacao(nrFederacao);
+                            try {
+                                int nrFederacao = Integer.parseInt(lineAttributes[i]);
+                                cand.setNumeroFederacao(nrFederacao);
+                            } catch (NumberFormatException nfe) {
+                                System.out.println("Numero de federação inválido");
+                            }
                         }
                         //DATA NASCIMENTO
                         else if(idxLineAttributes == 6){
-                            LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                            cand.setDataNascimento(ld);
+                            try {
+                                LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                                cand.setDataNascimento(ld);
+                            } catch (DateTimeParseException dt) {
+                                System.out.println("Data inválida!");
+                            }
                         }
                         //CODIGO GENERO
                         else if(idxLineAttributes == 7){
@@ -90,34 +101,39 @@ public class Main {
                         }
                         //CODIGO SITUACAO TOTAL TURNO
                         else if(idxLineAttributes == 8){
-                            int codigoEleito = Integer.parseInt(lineAttributes[i]);
-                            if(codigoEleito == 2 || codigoEleito == 3){
-                                cand.setEleito(true);
-                            }        
+                            try {
+                                int codigoEleito = Integer.parseInt(lineAttributes[i]);
+                                if(codigoEleito == 2 || codigoEleito == 3)
+                                    cand.setEleito(true);
+                            } 
+                            catch (NumberFormatException nfe) {
+                                System.out.println("O número referente ao código de situacao do candidato é inválido");
+                            }
                         }
                         //NOME DESTINACAO VOTOS
                         else if(idxLineAttributes == 9){
-                            //System.out.println(lineAttributes[i]);
                             if(lineAttributes[i].contains("legenda")){
                                 cand.setVotoLegenda(true);
                             }
                         }
                         //CODIGO SITUACAO TOTAL CANDIDATO
                         else if(idxLineAttributes == 10){
-                            int codigoDeferimento = Integer.parseInt(lineAttributes[i]);
-                            if(codigoDeferimento == 2 || codigoDeferimento == 16){
-                                cand.setCandidaturaDeferida(true);
+                            try {
+                                int codigoDeferimento = Integer.parseInt(lineAttributes[i]);
+                                if(codigoDeferimento == 2 || codigoDeferimento == 16)
+                                    cand.setCandidaturaDeferida(true);
+                            } 
+                            catch (NumberFormatException nfe) {
+                                System.out.println("O número referente ao deferimento do candidato é inválido");
                             }
                         }
                         idxLineAttributes++;
                     }
-                    if(invalidCargo){
-                        continue;
-                    }
                     eleicao.addCandidatoEPartido(cand,partido);
                 }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -179,9 +195,6 @@ public class Main {
                         if((c.toString()).equals("ESTADUAL")){
                             //System.out.println("VOTE:" + numVotavel + "/");
                             if(eleicao.constainsCandidatoKey(numVotavel)){
-                                if(numVotavel == 22){
-                                    System.out.println("PARTIDO FORA DE LUGAR");
-                                }
                                 eleicao.addVotosCandidato(numVotavel, votos);
                             }
                             else{
@@ -192,23 +205,17 @@ public class Main {
                             }
                         }
                     }
-                    else{
-                        //lançar exceção de tipo de votação errada
-                        System.out.println("ESTOU EM NADA");
-                        System.out.println(args[0]);
-                    }
                 }
             }
+        }
+        catch(NumberFormatException nfe){
+            System.out.println("Numero processo em formato inválido");
         }
         catch(Exception e){
             e.printStackTrace();
         }
 
-        if(nivelEleicao.equals("FEDERAL")){
-            eleicao.getRelatorioFederal();
-        }
-        else{
-            eleicao.getRelatorioEstadual();
-        }
+        eleicao.getRelatorio();
+
     }
 }
