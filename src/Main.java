@@ -137,6 +137,8 @@ public class Main {
             e.printStackTrace();
         }
 
+        //eleicao.printPartidos();
+
         headerVerify=true;
 
         try (FileInputStream fin2 = new FileInputStream(args[2]);
@@ -216,6 +218,6 @@ public class Main {
         }
 
         eleicao.getRelatorio();
-
+        //eleicao.printPartidos();
     }
 }

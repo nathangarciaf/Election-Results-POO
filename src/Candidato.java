@@ -115,7 +115,7 @@ public class Candidato {
         return "Candidato: " + getNomeUrna() + " (Numero de candidato: " + numero + " // Numero da federação: " + numeroFederacao + ")" + "\nNascido no dia: " + dataNascimento + "\nDeputado(a): " + cargo + "\nSexo: " + genero + "\nVotos: " + votos + "\n";
     }
 
-    public static class ComparatorVotos implements Comparator<Candidato> {
+    public static class ComparatorVotos implements Comparator<Candidato>{
         LocalDate data;
         public ComparatorVotos(LocalDate dataEleicao){
             this.data = dataEleicao;

@@ -1,6 +1,6 @@
+import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Vector;
 
 public class Partido {
     private String sigla;
@@ -9,11 +9,19 @@ public class Partido {
     private int votosNominais;
     private int votosTotais;
 
-    private Set<Candidato> candidatosFiliados = new HashSet<Candidato>();
+    private Vector<Candidato> candidatosFiliados = new Vector<Candidato>();
 
     public void addCandidatosFiliados(Candidato c){
         this.candidatosFiliados.add(c);
-    }   
+    }
+
+    public void sortCandidatosFiliados(LocalDate ld){
+        this.candidatosFiliados.sort(new Candidato.ComparatorVotos(ld));
+    }
+
+    public Vector<Candidato> getCandidatosFiliados(){
+        return new Vector<Candidato>(this.candidatosFiliados);
+    }
 
     public String getSigla() {
         return sigla;
@@ -53,6 +61,26 @@ public class Partido {
         this.numero = numero;
     }
 
+    public int getVotosCandidatoFiliado(int idx){
+        if(this.candidatosFiliados.size() > 0){
+            Candidato c = this.candidatosFiliados.get(idx);
+            return c.getVotos();
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public int getIdadeCandidatoFiliado(int idx, LocalDate ld){
+        if(this.candidatosFiliados.size() > 0){
+            Candidato c = this.candidatosFiliados.get(idx);
+            return c.getIdade(ld);
+        }
+        else{
+            return 0;
+        }
+    }
+
     public int getQuantidadeCandidatosEleitos(){
         int eleitos = 0;
         for(Candidato c : this.candidatosFiliados){
@@ -84,8 +112,9 @@ public class Partido {
     }
 
     public void printCandidatos(){
-        for(Candidato c : this.candidatosFiliados){
-            System.out.println(c);
+        for(int i = 0; i < this.candidatosFiliados.size(); i++){
+            Candidato c = this.candidatosFiliados.get(i);
+            System.out.println(i + " - " + c);
         }
     }
 
@@ -102,6 +131,23 @@ public class Partido {
             }
             else{
                 return p1.getNumero() - p2.getNumero();
+            }
+        }
+    }
+
+    public static class ComparatorCandidatoMaisVotado implements Comparator<Partido> {
+        LocalDate data;
+        public ComparatorCandidatoMaisVotado(LocalDate dataEleicao){
+            this.data = dataEleicao;
+        }
+
+        @Override
+        public int compare(Partido p1, Partido p2){
+            if(p2.getVotosCandidatoFiliado(0) != p1.getVotosCandidatoFiliado(0)){
+                return p2.getVotosCandidatoFiliado(0) - p1.getVotosCandidatoFiliado(0);
+            }
+            else{
+                return p2.getIdadeCandidatoFiliado(0,data) - p1.getIdadeCandidatoFiliado(0,data);
             }
         }
     }

@@ -2,6 +2,7 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Vector;
@@ -161,19 +162,14 @@ public class Eleicao {
             p = partidos.get(p.getNumero());
         }
 
-        if(this.nivel.equals("FEDERAL") && c.getCargo().toString().equals("FEDERAL")){
-            c.setPartido(p);
-            p.addCandidatosFiliados(c);
+        if((this.nivel.equals("FEDERAL") && c.getCargo().toString().equals("FEDERAL")) || (c.getCargo().toString().equals("ESTADUAL") && this.nivel.equals("ESTADUAL"))){
+            if(c.isCandidaturaDeferida() || (!c.isCandidaturaDeferida() && c.isVotoLegenda())){
+                c.setPartido(p);
+                p.addCandidatosFiliados(c);
 
-            candidatos.put(c.getNumero(), c);
-            partidos.put(p.getNumero(),p);
-        }
-        else if(c.getCargo().toString().equals("ESTADUAL") && this.nivel.equals("ESTADUAL")){
-            c.setPartido(p);
-            p.addCandidatosFiliados(c);
-
-            candidatos.put(c.getNumero(), c);
-            partidos.put(p.getNumero(),p);
+                candidatos.put(c.getNumero(), c);
+                partidos.put(p.getNumero(),p);
+            }
         }
         else{
             partidos.put(p.getNumero(),p);
@@ -611,7 +607,62 @@ public class Eleicao {
     }*/
 
     private void printPrimeiroEUltimoPorPartido(Vector<Partido> partidos){
-        
+        String result="";
+        for(Partido p : partidos){
+            p.sortCandidatosFiliados(this.data);
+        }
+
+        /*for(Partido p : partidos){
+            int i = 0;
+            System.out.println("CANDIDATOS FILIADOS DO PARTIDO: " + p.getSigla() + "\n");
+            Vector<Candidato> candidatosFili = p.getCandidatosFiliados();
+            for(Candidato c : candidatosFili){
+                System.out.println(i + " - " + c);
+                i++;
+            }
+        }*/
+        partidos.sort(new Partido.ComparatorCandidatoMaisVotado(this.data));
+
+        int idxPartido = 1;
+        for(Partido p : partidos){
+            List<Candidato> candidatosFiliadosPartido = p.getCandidatosFiliados();
+            if(candidatosFiliadosPartido.size() >= 1 && p.getVotosNominais() > 0){
+                Candidato candidatoMaisVotadoPartido = candidatosFiliadosPartido.get(0);
+                result += idxPartido + " - " + p.getSigla() + " - " + p.getNumero() + ", " + candidatoMaisVotadoPartido.getNomeUrna() + " (" + candidatoMaisVotadoPartido.getNumero() + ", ";
+                
+                int votosCandidatoMaisVotado = candidatoMaisVotadoPartido.getVotos();
+                
+                if(votosCandidatoMaisVotado <= 1){
+                    result += NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosCandidatoMaisVotado) + " voto) / ";
+                }
+                else{
+                    result += NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosCandidatoMaisVotado) + " votos) / ";
+                }
+
+                int idxCandidatoAtual = candidatosFiliadosPartido.size()-1;
+                Candidato candidatoMenosVotadoPartido = new Candidato();
+                while(idxCandidatoAtual >= 0){
+                    candidatoMenosVotadoPartido = candidatosFiliadosPartido.get(idxCandidatoAtual);
+                    if(candidatoMenosVotadoPartido.getVotos() > 0){
+                        break;
+                    }
+                    idxCandidatoAtual--;
+                }
+                
+                result += candidatoMenosVotadoPartido.getNomeUrna() + " (" + candidatoMenosVotadoPartido.getNumero() + ", ";
+
+                int votosCandidatoMenosVotado = candidatoMenosVotadoPartido.getVotos();
+
+                if(votosCandidatoMenosVotado <= 1){
+                    result += NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosCandidatoMenosVotado) + " voto)\n";
+                }
+                else{
+                    result += NumberFormat.getIntegerInstance(new Locale("pt","BR")).format(votosCandidatoMenosVotado) + " votos)\n";
+                }
+                idxPartido++;
+            }
+        }
+        System.out.println(result);
     }
 
     private void printEleitosPorGenero(Vector<Candidato> candidatos){
@@ -849,4 +900,16 @@ public class Eleicao {
         }
         System.out.println(result);
     }*/
+    
+    public void printPartidos(){
+        for(Partido p : this.partidos.values()){
+            if(p.getSigla().equals("REPUBLICANOS")){
+                for(Candidato c : p.getCandidatosFiliados()){
+                    if(c.getNumero() == 10345){
+                        System.out.println(c);
+                    }
+                }
+            }
+        }
+    }
 }
