@@ -1,0 +1,131 @@
+Número de vagas: 24
+
+Deputados estaduais eleitos:
+1 - LEO BARBOSA (REPUBLICANOS, 32.885 votos)
+2 - PROFESSORA JANAD VALCARI (PL, 31.587 votos)
+3 - JAIR FARIAS (UNIÃO, 31.442 votos)
+4 - JORGE FREDERICO (REPUBLICANOS, 24.929 votos)
+5 - AMELIO CAYRES (REPUBLICANOS, 22.921 votos)
+6 - NILTON FRANCO (REPUBLICANOS, 21.502 votos)
+7 - CLEITON CARDOSO (REPUBLICANOS, 21.421 votos)
+8 - VILMAR (SOLIDARIEDADE, 20.683 votos)
+9 - OLYNTHO NETO (REPUBLICANOS, 19.738 votos)
+10 - FABION GOMES (PL, 19.159 votos)
+11 - VANDA MONTEIRO (UNIÃO, 17.995 votos)
+12 - VALDEMAR JUNIOR (REPUBLICANOS, 17.779 votos)
+13 - *IVORY DE LIRA (PC do B, 15.651 votos)
+14 - LUCIANO OLIVEIRA (PSD, 15.648 votos)
+15 - *EDUARDO DO DERTINS (CIDADANIA, 15.512 votos)
+16 - EDUARDO FORTES (PSD, 15.466 votos)
+17 - *EDUARDO MANTOAN (PSDB, 14.062 votos)
+18 - MARCUS MARCELO (PL, 13.277 votos)
+19 - PROFESSOR JUNIOR GEO (PSC, 12.798 votos)
+20 - *CLAUDIA LELIS (PV, 12.674 votos)
+21 - MOISEMAR MARINHO (PSB, 12.553 votos)
+22 - WISTON GOMES (PSD, 10.704 votos)
+23 - GUTIERRES (PDT, 9.865 votos)
+24 - GIPÃO (PL, 8.271 votos)
+
+Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):
+1 - LEO BARBOSA (REPUBLICANOS, 32.885 votos)
+2 - PROFESSORA JANAD VALCARI (PL, 31.587 votos)
+3 - JAIR FARIAS (UNIÃO, 31.442 votos)
+4 - JORGE FREDERICO (REPUBLICANOS, 24.929 votos)
+5 - AMELIO CAYRES (REPUBLICANOS, 22.921 votos)
+6 - NILTON FRANCO (REPUBLICANOS, 21.502 votos)
+7 - CLEITON CARDOSO (REPUBLICANOS, 21.421 votos)
+8 - VILMAR (SOLIDARIEDADE, 20.683 votos)
+9 - OLYNTHO NETO (REPUBLICANOS, 19.738 votos)
+10 - FABION GOMES (PL, 19.159 votos)
+11 - VANDA MONTEIRO (UNIÃO, 17.995 votos)
+12 - VALDEMAR JUNIOR (REPUBLICANOS, 17.779 votos)
+13 - *IVORY DE LIRA (PC do B, 15.651 votos)
+14 - LUCIANO OLIVEIRA (PSD, 15.648 votos)
+15 - *EDUARDO DO DERTINS (CIDADANIA, 15.512 votos)
+16 - EDUARDO FORTES (PSD, 15.466 votos)
+17 - ISSAM SAADO (REPUBLICANOS, 15.021 votos)
+18 - *EDUARDO MANTOAN (PSDB, 14.062 votos)
+19 - MARCUS MARCELO (PL, 13.277 votos)
+20 - PROFESSOR JUNIOR GEO (PSC, 12.798 votos)
+21 - *CLAUDIA LELIS (PV, 12.674 votos)
+22 - MOISEMAR MARINHO (PSB, 12.553 votos)
+23 - *LUANA RIBEIRO (PC do B, 12.424 votos)
+24 - ELENIL (MDB, 11.732 votos)
+
+Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:
+(com sua posição no ranking de mais votados)
+17 - ISSAM SAADO (REPUBLICANOS, 15.021 votos)
+23 - *LUANA RIBEIRO (PC do B, 12.424 votos)
+24 - ELENIL (MDB, 11.732 votos)
+
+Eleitos, que se beneficiaram do sistema proporcional:
+(com sua posição no ranking de mais votados)
+27 - WISTON GOMES (PSD, 10.704 votos)
+28 - GUTIERRES (PDT, 9.865 votos)
+33 - GIPÃO (PL, 8.271 votos)
+
+Votação dos partidos e número de candidatos eleitos:
+1 - REPUBLICANOS - 10, 205.631 votos (199.918 nominais e 5.713 de legenda), 7 candidatos eleitos
+2 - PL - 22, 116.003 votos (112.369 nominais e 3.634 de legenda), 4 candidatos eleitos
+3 - PSD - 55, 110.585 votos (108.575 nominais e 2.010 de legenda), 3 candidatos eleitos
+4 - UNIÃO - 44, 66.857 votos (56.858 nominais e 9.999 de legenda), 2 candidatos eleitos
+5 - PT - 13, 41.384 votos (34.758 nominais e 6.626 de legenda), 0 candidato eleito
+6 - PSB - 40, 40.946 votos (38.968 nominais e 1.978 de legenda), 1 candidato eleito
+7 - SOLIDARIEDADE - 77, 36.483 votos (35.825 nominais e 658 de legenda), 1 candidato eleito
+8 - CIDADANIA - 23, 33.356 votos (32.767 nominais e 589 de legenda), 1 candidato eleito
+9 - PSC - 20, 31.886 votos (30.887 nominais e 999 de legenda), 1 candidato eleito
+10 - PDT - 12, 29.962 votos (28.688 nominais e 1.274 de legenda), 1 candidato eleito
+11 - PC do B - 65, 28.760 votos (28.261 nominais e 499 de legenda), 1 candidato eleito
+12 - PSDB - 45, 26.247 votos (24.898 nominais e 1.349 de legenda), 1 candidato eleito
+13 - MDB - 15, 21.744 votos (20.514 nominais e 1.230 de legenda), 0 candidato eleito
+14 - PTB - 14, 20.702 votos (19.871 nominais e 831 de legenda), 0 candidato eleito
+15 - PV - 43, 13.653 votos (13.378 nominais e 275 de legenda), 1 candidato eleito
+16 - PATRIOTA - 51, 5.615 votos (5.255 nominais e 360 de legenda), 0 candidato eleito
+17 - PMB - 35, 1.753 votos (1.632 nominais e 121 de legenda), 0 candidato eleito
+18 - PRTB - 28, 1.470 votos (1.413 nominais e 57 de legenda), 0 candidato eleito
+19 - PSOL - 50, 798 votos (599 nominais e 199 de legenda), 0 candidato eleito
+20 - DC - 27, 323 votos (228 nominais e 95 de legenda), 0 candidato eleito
+21 - REDE - 18, 153 votos (0 nominal e 153 de legenda), 0 candidato eleito
+22 - PP - 11, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+23 - PODE - 19, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+24 - PCO - 29, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+25 - AGIR - 36, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+26 - AVANTE - 70, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+27 - PROS - 90, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+
+Primeiro e último colocados de cada partido:
+1 - REPUBLICANOS - 10, LEO BARBOSA (10100, 32.885 votos) / SARGENTO AURYA (10200, 91 votos)
+2 - PL - 22, PROFESSORA JANAD VALCARI (22123, 31.587 votos) / PASTORA VERIDIANA (22789, 28 votos)
+3 - UNIÃO - 44, JAIR FARIAS (44777, 31.442 votos) / SARGENTO DIRLENE (44222, 74 votos)
+4 - SOLIDARIEDADE - 77, VILMAR (77700, 20.683 votos) / NEGA PORTO (77500, 58 votos)
+5 - PC do B - 65, IVORY DE LIRA (65000, 15.651 votos) / ADRIANA SOUZA (65180, 23 votos)
+6 - PSD - 55, LUCIANO OLIVEIRA (55222, 15.648 votos) / MAYLLA DO ALTO LINDO (55235, 10 votos)
+7 - CIDADANIA - 23, EDUARDO DO DERTINS (23222, 15.512 votos) / CARLA ARALDI (23999, 25 votos)
+8 - PSDB - 45, EDUARDO MANTOAN (45123, 14.062 votos) / MARTHA HADASSA (45100, 106 votos)
+9 - PSC - 20, PROFESSOR JUNIOR GEO (20020, 12.798 votos) / PROFESSORA NEURA (20555, 38 votos)
+10 - PV - 43, CLAUDIA LELIS (43123, 12.674 votos) / PROFESSOR NETO CAVALHEIRO (43500, 51 votos)
+11 - PSB - 40, MOISEMAR MARINHO (40777, 12.553 votos) / BISPA VALDINEIA BISPO (40237, 63 votos)
+12 - MDB - 15, ELENIL (15115, 11.732 votos) / DINÉIA DO BAR (15024, 12 votos)
+13 - PT - 13, AMÁLIA SANTANA (13613, 11.532 votos) / ZÉ GERALDO (13445, 283 votos)
+14 - PDT - 12, GUTIERRES (12123, 9.865 votos) / PROFESSORA ELISANGELA (12300, 22 votos)
+15 - PTB - 14, WALTER VIANA (14123, 4.554 votos) / SOLANGE MARTINS (14014, 123 votos)
+16 - PATRIOTA - 51, WALISON SILVA (51510, 1.157 votos) / NARA CARVALHO (51002, 14 votos)
+17 - PMB - 35, ADRIANA DIAS (35000, 486 votos) / FERDINAND (35123, 22 votos)
+18 - PRTB - 28, DUMINGUIM (28123, 383 votos) / DENIS DIAS (28555, 0 voto)
+19 - PSOL - 50, GABRIELA RAIA (50000, 254 votos) / GUSTAVO AMARAL (50123, 166 votos)
+20 - DC - 27, DRA ELIENE PEREIRA (27700, 84 votos) / CELMA ALENCAR (27555, 28 votos)
+
+Eleitos, por faixa etária (na data da eleição):
+      Idade < 30: 0 (0,00%)
+30 <= Idade < 40: 5 (20,83%)
+40 <= Idade < 50: 9 (37,50%)
+50 <= Idade < 60: 7 (29,17%)
+60 <= Idade     : 3 (12,50%)
+
+Eleitos, por gênero:
+Feminino:  3 (12,50%)
+Masculino: 21 (87,50%)
+
+Total de votos válidos:    834.311
+Total de votos nominais:   795.662 (95,37%)
+Total de votos de legenda: 38.649 (4,63%)

@@ -61,7 +61,7 @@ public class Main {
                         }
                         //NOME URNA
                         else if(idxLineAttributes == 2){
-                            cand.setNomeUrna(lineAttributes[i]);
+                            cand.setNomeUrna(lineAttributes[i].trim());
                         }
                         //NUMERO PARTIDO
                         else if(idxLineAttributes == 3){

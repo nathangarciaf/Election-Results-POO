@@ -1,0 +1,102 @@
+Número de vagas: 8
+
+Deputados federais eleitos:
+1 - TOINHO ANDRADE (REPUBLICANOS, 63.813 votos)
+2 - VICENTINHO JUNIOR (PP, 55.292 votos)
+3 - ALEXANDRE GUIMARÃES (REPUBLICANOS, 54.703 votos)
+4 - CARLOS GAGUIM (UNIÃO, 52.203 votos)
+5 - RICARDO AYRES (REPUBLICANOS, 45.880 votos)
+6 - FILIPE MARTINS (PL, 36.293 votos)
+7 - ELI BORGES (PL, 35.171 votos)
+8 - LAZARO BOTELHO (PP, 13.668 votos)
+
+Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):
+1 - TOINHO ANDRADE (REPUBLICANOS, 63.813 votos)
+2 - VICENTINHO JUNIOR (PP, 55.292 votos)
+3 - ALEXANDRE GUIMARÃES (REPUBLICANOS, 54.703 votos)
+4 - CARLOS GAGUIM (UNIÃO, 52.203 votos)
+5 - RICARDO AYRES (REPUBLICANOS, 45.880 votos)
+6 - TIAGO DIMAS (PODE, 42.970 votos)
+7 - OSIRES DAMASO (PSC, 41.113 votos)
+8 - DULCE MIRANDA (MDB, 38.130 votos)
+
+Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:
+(com sua posição no ranking de mais votados)
+6 - TIAGO DIMAS (PODE, 42.970 votos)
+7 - OSIRES DAMASO (PSC, 41.113 votos)
+8 - DULCE MIRANDA (MDB, 38.130 votos)
+
+Eleitos, que se beneficiaram do sistema proporcional:
+(com sua posição no ranking de mais votados)
+9 - FILIPE MARTINS (PL, 36.293 votos)
+11 - ELI BORGES (PL, 35.171 votos)
+14 - LAZARO BOTELHO (PP, 13.668 votos)
+
+Votação dos partidos e número de candidatos eleitos:
+1 - REPUBLICANOS - 10, 184.240 votos (179.490 nominais e 4.750 de legenda), 3 candidatos eleitos
+2 - UNIÃO - 44, 104.375 votos (102.346 nominais e 2.029 de legenda), 1 candidato eleito
+3 - PL - 22, 90.627 votos (86.730 nominais e 3.897 de legenda), 2 candidatos eleitos
+4 - PP - 11, 89.619 votos (87.144 nominais e 2.475 de legenda), 2 candidatos eleitos
+5 - PODE - 19, 72.312 votos (71.684 nominais e 628 de legenda), 0 candidato eleito
+6 - PT - 13, 67.109 votos (61.149 nominais e 5.960 de legenda), 0 candidato eleito
+7 - PSC - 20, 50.659 votos (49.990 nominais e 669 de legenda), 0 candidato eleito
+8 - MDB - 15, 47.679 votos (46.649 nominais e 1.030 de legenda), 0 candidato eleito
+9 - PSD - 55, 32.746 votos (30.823 nominais e 1.923 de legenda), 0 candidato eleito
+10 - PTB - 14, 27.111 votos (26.243 nominais e 868 de legenda), 0 candidato eleito
+11 - PSDB - 45, 18.394 votos (17.412 nominais e 982 de legenda), 0 candidato eleito
+12 - PSB - 40, 14.726 votos (13.773 nominais e 953 de legenda), 0 candidato eleito
+13 - PDT - 12, 6.749 votos (3.667 nominais e 3.082 de legenda), 0 candidato eleito
+14 - AVANTE - 70, 6.555 votos (6.034 nominais e 521 de legenda), 0 candidato eleito
+15 - PATRIOTA - 51, 6.368 votos (6.154 nominais e 214 de legenda), 0 candidato eleito
+16 - CIDADANIA - 23, 1.940 votos (1.136 nominais e 804 de legenda), 0 candidato eleito
+17 - PSOL - 50, 1.762 votos (1.507 nominais e 255 de legenda), 0 candidato eleito
+18 - PC do B - 65, 1.727 votos (1.320 nominais e 407 de legenda), 0 candidato eleito
+19 - REDE - 18, 1.333 votos (903 nominais e 430 de legenda), 0 candidato eleito
+20 - PMB - 35, 1.300 votos (1.174 nominais e 126 de legenda), 0 candidato eleito
+21 - PV - 43, 1.187 votos (841 nominais e 346 de legenda), 0 candidato eleito
+22 - DC - 27, 859 votos (790 nominais e 69 de legenda), 0 candidato eleito
+23 - PRTB - 28, 763 votos (634 nominais e 129 de legenda), 0 candidato eleito
+24 - PCO - 29, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+25 - AGIR - 36, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+26 - SOLIDARIEDADE - 77, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+27 - PROS - 90, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+
+Primeiro e último colocados de cada partido:
+1 - REPUBLICANOS - 10, TOINHO ANDRADE (1011, 63.813 votos) / ROBERVAL CASTRO (1077, 424 votos)
+2 - PP - 11, VICENTINHO JUNIOR (1111, 55.292 votos) / MESTRE ROBERTINHO DO KARATE (1177, 495 votos)
+3 - UNIÃO - 44, CARLOS GAGUIM (4444, 52.203 votos) / YGOR CORTEZ (4456, 569 votos)
+4 - PODE - 19, TIAGO DIMAS (1988, 42.970 votos) / SAMIRA BEZERRA (1991, 845 votos)
+5 - PSC - 20, OSIRES DAMASO (2020, 41.113 votos) / MAIRAN MORAIS (2030, 197 votos)
+6 - MDB - 15, DULCE MIRANDA (1511, 38.130 votos) / ORLANDO (1520, 47 votos)
+7 - PL - 22, FILIPE MARTINS (2222, 36.293 votos) / FERNANDO DA RAÇÃO (2258, 51 votos)
+8 - PT - 13, CÉLIO MOURA (1333, 36.186 votos) / ZÊNIS DE AQUINO (1325, 432 votos)
+9 - PSD - 55, PROFESSORA ELIZABETE (5500, 15.757 votos) / MAURITANIA GOMES (5535, 78 votos)
+10 - PTB - 14, DIOGO FERNANDES (1414, 7.765 votos) / GALEGO (1488, 334 votos)
+11 - PSDB - 45, MARTHA RAMOS (4545, 6.599 votos) / MAURICIO WILLIAM (4510, 144 votos)
+12 - PSB - 40, MÁRLON REIS (4041, 4.474 votos) / RANYERE (4001, 142 votos)
+13 - PATRIOTA - 51, LEDA PERINI (5100, 3.086 votos) / JAIR BOLSONARINHO (5144, 61 votos)
+14 - AVANTE - 70, MARQUINHOS (7000, 2.124 votos) / DR PAULO ERIVAN (7025, 140 votos)
+15 - PMB - 35, YETTE NOGUEIRA (3507, 1.072 votos) / PROFESSOR NUBIO (3535, 102 votos)
+16 - CIDADANIA - 23, EMMANOEL MARLON (2300, 1.024 votos) / CIDA BELTRÃO (2344, 112 votos)
+17 - PDT - 12, MIQUELIN FEITOSA (1234, 1.000 votos) / LILIANE SIQUEIRA (1244, 279 votos)
+18 - PSOL - 50, CHARLEIDE MATOS (5011, 913 votos) / KEILA AGUIAR CALDAS (5047, 50 votos)
+19 - PC do B - 65, LETHYCIA SUARTTE (6555, 822 votos) / TÔIN DE XICA (6500, 498 votos)
+20 - REDE - 18, VANESSA SIDI XERENTE (1818, 778 votos) / RENATO PORTELA (1800, 125 votos)
+21 - PV - 43, ELIANE AMBIENTALISTA (4343, 518 votos) / PROFESSOR LEONAM (4366, 323 votos)
+22 - PRTB - 28, EUDES RIBEIRO (2828, 455 votos) / ROMUALDO VIEIRA (2877, 1 voto)
+23 - DC - 27, ARACELY JOSE MACIEL (2707, 293 votos) / SGT ISAIAS (2788, 1 voto)
+
+Eleitos, por faixa etária (na data da eleição):
+      Idade < 30: 0 (0,00%)
+30 <= Idade < 40: 3 (37,50%)
+40 <= Idade < 50: 1 (12,50%)
+50 <= Idade < 60: 0 (0,00%)
+60 <= Idade     : 4 (50,00%)
+
+Eleitos, por gênero:
+Feminino:  0 (0,00%)
+Masculino: 8 (100,00%)
+
+Total de votos válidos:    830.140
+Total de votos nominais:   797.593 (96,08%)
+Total de votos de legenda: 32.547 (3,92%)
