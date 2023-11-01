@@ -65,10 +65,10 @@ public class Eleicao {
         System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
         printCandidatosMaisVotados(cands);
         
-        System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\r\n" + //
+        System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n" + //
                 "(com sua posição no ranking de mais votados)");
         printCandidatosMajoritariosNaoEleitos(cands);
-        System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\r\n" + //
+        System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\n" + //
                 "(com sua posição no ranking de mais votados)");
         printCandidatosEleitosNaoMajoritarios(cands);
 
