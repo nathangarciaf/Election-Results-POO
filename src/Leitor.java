@@ -1,6 +1,7 @@
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -14,6 +15,7 @@ public class Leitor {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String lineFormat = line.replaceAll("\"", "");
+                boolean invalidDate=false;
 
                 if(headerVerify != false){
                     eleicao.addHeaderIdxCandidato(headerAttributesIndexes, lineFormat.split(";"));
@@ -68,8 +70,13 @@ public class Leitor {
                         }
                         //DATA NASCIMENTO
                         else if(idxLineAttributes == 6){
-                            LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                            cand.setDataNascimento(ld);
+                            try {
+                                LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                                cand.setDataNascimento(ld);
+                            } catch (DateTimeParseException dt) {
+                                invalidDate=true;
+                                break;
+                            }
                         }
                         //CODIGO GENERO
                         else if(idxLineAttributes == 7){
@@ -106,7 +113,9 @@ public class Leitor {
                         }
                         idxLineAttributes++;
                     }
-                    eleicao.addCandidatoEPartido(cand,partido);
+                    if(!invalidDate){
+                        eleicao.addCandidatoEPartido(cand,partido);
+                    }
                 }
             }
         }
