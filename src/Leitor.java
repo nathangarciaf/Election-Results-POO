@@ -1,7 +1,6 @@
 import java.io.FileInputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -69,12 +68,8 @@ public class Leitor {
                         }
                         //DATA NASCIMENTO
                         else if(idxLineAttributes == 6){
-                            try {
-                                LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                                cand.setDataNascimento(ld);
-                            } catch (DateTimeParseException dt) {
-                                System.out.println("Data inválida!");
-                            }
+                            LocalDate ld = LocalDate.parse(lineAttributes[i],DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                            cand.setDataNascimento(ld);
                         }
                         //CODIGO GENERO
                         else if(idxLineAttributes == 7){
