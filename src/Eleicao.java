@@ -124,12 +124,9 @@ public class Eleicao {
                 p.addCandidatosFiliados(c);
 
                 candidatos.put(c.getNumero(), c);
-                partidos.put(p.getNumero(),p);
             }
         }
-        else{
-            partidos.put(p.getNumero(),p);
-        }
+        partidos.put(p.getNumero(),p);
     }
 
     public void addVotosCandidato(int key, int votos){

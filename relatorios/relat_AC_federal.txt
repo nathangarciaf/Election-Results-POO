@@ -52,11 +52,12 @@ Votação dos partidos e número de candidatos eleitos:
 19 - CIDADANIA - 23, 491 votos (392 nominais e 99 de legenda), 0 candidato eleito
 20 - AGIR - 36, 323 votos (292 nominais e 31 de legenda), 0 candidato eleito
 21 - PMN - 33, 183 votos (119 nominais e 64 de legenda), 0 candidato eleito
-22 - PTB - 14, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
-23 - PL - 22, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
-24 - DC - 27, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
-25 - PRTB - 28, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
-26 - AVANTE - 70, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+22 - PCO - 29, 3 votos (0 nominal e 3 de legenda), 0 candidato eleito
+23 - PTB - 14, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+24 - PL - 22, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+25 - DC - 27, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+26 - PRTB - 28, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
+27 - AVANTE - 70, 0 voto (0 nominal e 0 de legenda), 0 candidato eleito
 
 Primeiro e último colocados de cada partido:
 1 - PP - 11, SOCORRO NERI (1101, 25.842 votos) / GIL TEIXEIRA (1177, 647 votos)
@@ -92,6 +93,6 @@ Eleitos, por gênero:
 Feminino:  3 (37,50%)
 Masculino: 5 (62,50%)
 
-Total de votos válidos:    434.253
+Total de votos válidos:    434.256
 Total de votos nominais:   418.749 (96,43%)
-Total de votos de legenda: 15.504 (3,57%)
+Total de votos de legenda: 15.507 (3,57%)

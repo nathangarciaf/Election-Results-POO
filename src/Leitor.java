@@ -40,7 +40,6 @@ public class Leitor {
                             } catch (NumberFormatException nfe) {
                                 System.out.println("Numero do candidato inválido");
                             }
-                                
                         }
                         //NOME URNA
                         else if(idxLineAttributes == 2){
