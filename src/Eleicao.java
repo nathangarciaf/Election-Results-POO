@@ -14,7 +14,7 @@ class InvalidElectionException extends Exception {
     }
 }
 
-public class Eleicao {
+public class Eleicao{
     private LocalDate data;
     private String nivel;
 
